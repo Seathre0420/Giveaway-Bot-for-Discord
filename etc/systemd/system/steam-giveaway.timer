@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart watchdog for the giveaway bot (optional)
+
+[Timer]
+OnUnitActiveSec=1min
+AccuracySec=1s
+Unit=steam-giveaway.service
+
+[Install]
+WantedBy=timers.target

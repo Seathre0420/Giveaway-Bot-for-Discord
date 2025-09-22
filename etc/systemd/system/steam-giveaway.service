@@ -1,0 +1,23 @@
+[Unit]
+Description=Discord Steam Giveaway Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=giveaway-bot
+Group=giveaway-bot
+WorkingDirectory=/opt/steam-giveaway-bot
+Environment=NODE_ENV=production
+EnvironmentFile=/opt/steam-giveaway-bot/.env
+ExecStart=/usr/bin/node /opt/steam-giveaway-bot/index.js
+Restart=always
+RestartSec=3
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
